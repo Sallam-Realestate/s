@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sallam Real Estate Investment — design, construction, finishing and real estate investment.">
+<title>Sallam Real Estate Investment</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: navy hero band with the mark, services in a ruled grid, works as four line-drawn silhouettes, contact band. Arabic first, RTL by default, English toggle. */
+:root{
+  --bg:#F6F3EC; --surface:#FFFFFF; --fg:#0F2A43; --muted:#4A5B6C;
+  --band:#0F2A43; --on-band:#F6F3EC; --on-band-muted:#C3CCD6;
+  --gold:#C9A24B; --gold-text:#7A5C16; --line:rgba(15,42,67,.18);
+  --font-ar:'Cairo','Tajawal',system-ui,sans-serif;
+  --font-en:'Montserrat','Segoe UI',system-ui,sans-serif;
+  direction:rtl;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1F33; --surface:#102B45; --fg:#F6F3EC; --muted:#B7C2CE;
+    --band:#0F2A43; --gold-text:#C9A24B; --line:rgba(246,243,236,.2);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1F33; --surface:#102B45; --fg:#F6F3EC; --muted:#B7C2CE;
+  --band:#0F2A43; --gold-text:#C9A24B; --line:rgba(246,243,236,.2);
+  color-scheme:dark;
+}
+:root[data-lang="en"]{direction:ltr}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:var(--font-ar); font-size:17px; line-height:1.7;
+  padding-block:0; overflow-x:clip;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+:root[data-lang="en"] body{font-family:var(--font-en); line-height:1.65}
+:root:not([data-lang="en"]) .en{display:none}
+:root[data-lang="en"] .ar{display:none}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold); outline-offset:3px}
+.wrap{max-width:1120px; margin-inline:auto}
+.eyebrow{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-text); font-weight:700}
+:root:not([data-lang="en"]) .eyebrow{letter-spacing:0; font-size:15px}
+
+/* top bar */
+.top{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:18px}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+.brand svg{width:44px; height:44px; flex:none}
+.brand b{font-family:var(--font-en); font-weight:800; letter-spacing:.14em; font-size:20px}
+.langbtn{
+  font:inherit; font-size:15px; font-weight:600; color:var(--fg); background:transparent;
+  border:1.5px solid var(--line); border-radius:6px; padding:8px 16px; min-height:44px; cursor:pointer;
+}
+.langbtn:hover{border-color:var(--gold)}
+
+/* hero */
+.hero{background:var(--band); color:var(--on-band); margin-inline:calc(50% - 50vw); padding-inline:max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); padding-block:72px 80px}
+.hero .wrap{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:48px; align-items:center}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(40px,7vw,76px); line-height:1.12; font-weight:800; margin-block:14px 22px}
+:root[data-lang="en"] .hero h1{letter-spacing:-.01em}
+.hero h1 em{font-style:normal; color:var(--gold)}
+.hero p{font-size:19px; color:var(--on-band-muted); max-width:34em}
+.cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 26px;
+  font:inherit; font-weight:700; font-size:16px; text-decoration:none; border-radius:6px; cursor:pointer;
+  border:1.5px solid var(--gold); background:var(--gold); color:#0F2A43;
+}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent; color:var(--on-band); border-color:rgba(246,243,236,.45)}
+.btn.ghost:hover{border-color:var(--gold)}
+.mark{justify-self:center; width:min(100%,300px)}
+.mark svg{width:100%; height:auto; display:block}
+
+/* sections */
+section{padding-block:80px}
+.head{display:flex; flex-direction:column; gap:10px; margin-bottom:40px; max-width:40em}
+.head h2{font-size:clamp(28px,4.4vw,44px); line-height:1.2; font-weight:800}
+.about p{font-size:20px; max-width:36em; color:var(--fg)}
+.services{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 32px}
+.svc{border-top:3px solid var(--gold); padding-block:20px 36px; min-width:0}
+.svc h3{font-size:21px; font-weight:700; margin-bottom:8px; line-height:1.35}
+.svc p{color:var(--muted); font-size:16px}
+.works{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px}
+.work{background:var(--surface); border:1px solid var(--line); padding:20px; min-width:0}
+.work svg{width:100%; height:auto; display:block; color:var(--gold-text); margin-bottom:14px}
+.work h3{font-size:17px; font-weight:700; line-height:1.35}
+.lead{margin-top:28px; color:var(--muted); max-width:40em}
+
+/* contact */
+.contact{background:var(--band); color:var(--on-band); margin-inline:calc(50% - 50vw); padding-inline:max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px))}
+.contact .eyebrow{color:var(--gold)}
+.contact .wrap{display:flex; flex-wrap:wrap; gap:32px 64px; align-items:center; justify-content:space-between}
+.contact .sub{color:var(--on-band-muted); margin-top:12px; max-width:30em}
+.contact h2{font-size:clamp(28px,4.4vw,44px); line-height:1.2; font-weight:800; margin-top:10px}
+.numrow{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:8px}
+.phoneicon{display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:var(--gold); color:#1a1a1a; text-decoration:none; transition:filter .15s, transform .15s}
+.phoneicon:hover{filter:brightness(1.07); transform:scale(1.05)}
+.phoneicon:focus-visible{outline:2px solid var(--on-band); outline-offset:3px}
+footer{padding-block:28px; font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .mark{order:-1; width:120px; justify-self:start}
+  .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .works{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:56px}
+  .hero{padding-block:48px 56px}
+  .services,.works{grid-template-columns:1fr}
+  .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn,.langbtn{transition:filter .15s, border-color .15s}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" aria-label="Sallam">
+      <svg viewBox="0 0 100 100" role="img" aria-label="Sallam logo mark"><rect width="100" height="100" rx="22" fill="#0F2A43"/><path d="M20 25 L50 7 L80 25" fill="none" stroke="#C9A24B" stroke-width="6"/><path d="M76 36 H30 V57 H70 V78 H24" fill="none" stroke="#F6F3EC" stroke-width="14"/></svg>
+      <b>SALLAM</b>
+    </a>
+    <button class="langbtn" id="langbtn" type="button"><span class="ar">English</span><span class="en">العربية</span></button>
+  </header>
+</div>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><span class="ar">سلام للاستثمار العقاري</span><span class="en">Sallam Real Estate Investment</span></p>
+      <h1>
+        <span class="ar">نصمّم، ونبني، <em>ونشطّب.</em></span>
+        <span class="en">We design, build and <em>finish.</em></span>
+      </h1>
+      <p>
+        <span class="ar">أكثر من 10 سنوات من الخبرة في المشروعات الكبرى بالتعاون مع جهات الدولة، أصبحت الآن في خدمة كل من يملك أرضاً وحلماً.</span>
+        <span class="en">More than 10 years delivering large projects with state entities, now at the service of anyone with a plot of land and a dream.</span>
+      </p>
+      <div class="cta">
+        <a class="btn" href="https://wa.me/201096611768" target="_blank" rel="noopener"><span class="ar">تواصل عبر واتساب</span><span class="en">Message on WhatsApp</span></a>
+        <a class="btn ghost" href="#services"><span class="ar">خدماتنا</span><span class="en">Our services</span></a>
+      </div>
+    </div>
+    <div class="mark">
+      <svg viewBox="0 0 100 100" role="img" aria-label="Sallam logo mark"><rect width="100" height="100" rx="22" fill="#F6F3EC"/><path d="M20 25 L50 7 L80 25" fill="none" stroke="#B88A2E" stroke-width="6"/><path d="M76 36 H30 V57 H70 V78 H24" fill="none" stroke="#0F2A43" stroke-width="14"/></svg>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="about" id="about">
+    <div class="head">
+      <p class="eyebrow"><span class="ar">من نحن</span><span class="en">About us</span></p>
+      <h2><span class="ar">أكثر من 10 سنوات في البناء</span><span class="en">Over 10 years of building</span></h2>
+    </div>
+    <p>
+      <span class="ar">شاركنا على مدار أكثر من 10 سنوات في تنفيذ مشروعات كبيرة بالتعاون مع جهات الدولة، من عمارات سكنية وفلل إلى مراكز الشباب والمشروعات الخدمية. بدأنا من أعمال الإنشاءات، ومررنا بجميع مراحل التنفيذ والتشطيبات، حتى تسليم مشروعات متكاملة.</span>
+      <span class="en">For more than 10 years we have taken part in large projects with state entities, from residential buildings and villas to youth centers and service projects. We started with construction works and went through every stage of execution and finishing, up to handing over complete projects.</span>
+    </p>
+    <p style="margin-top:18px">
+      <span class="ar">واليوم نفتح أبوابنا للعملاء مباشرة، لنكون شركاءكم في بناء بيوتكم ومشروعاتكم الخاصة. نحن لا نبدأ من الصفر، بل ننقل خبرة سنين من المشروعات الكبيرة إلى بيتك ومشروعك.</span>
+      <span class="en">Today we open our doors to clients directly, to be your partner in building your home and your own projects. We do not start from zero: we bring years of large-project experience to your home and your project.</span>
+    </p>
+  </section>
+
+  <section id="services">
+    <div class="head">
+      <p class="eyebrow"><span class="ar">الخدمات</span><span class="en">Services</span></p>
+      <h2><span class="ar">ما نقدمه</span><span class="en">What we do</span></h2>
+    </div>
+    <div class="services">
+      <div class="svc"><h3><span class="ar">التصميمات المعمارية والهندسية</span><span class="en">Architectural and engineering design</span></h3><p><span class="ar">تصاميم معمارية وهندسية للبيوت والمشروعات الخاصة والعامة.</span><span class="en">Architectural and engineering designs for homes and for private and public projects.</span></p></div>
+      <div class="svc"><h3><span class="ar">أعمال البناء والإنشاءات</span><span class="en">Building and construction</span></h3><p><span class="ar">تنفيذ المشروعات من الأساسات حتى التسليم.</span><span class="en">Delivering projects from foundations to handover.</span></p></div>
+      <div class="svc"><h3><span class="ar">التشطيبات الداخلية والخارجية</span><span class="en">Interior and exterior finishing</span></h3><p><span class="ar">تشطيب كامل للفلل والعمارات والشقق من الداخل والخارج.</span><span class="en">Complete interior and exterior finishing for villas, buildings and apartments.</span></p></div>
+      <div class="svc"><h3><span class="ar">تصميمات 3D والواجهات</span><span class="en">3D design and facades</span></h3><p><span class="ar">نماذج ثلاثية الأبعاد وتصميم واجهات تعرض مشروعك قبل التنفيذ.</span><span class="en">3D models and facade designs that show your project before construction.</span></p></div>
+      <div class="svc"><h3><span class="ar">الفرش والتأثيث</span><span class="en">Furnishing and fit-out</span></h3><p><span class="ar">تجهيز المكان بالفرش والتأثيث ليسلَّم جاهزاً للسكن أو للعمل.</span><span class="en">Furnishing the space so it is handed over ready to live in or work in.</span></p></div>
+      <div class="svc"><h3><span class="ar">البنية التحتية</span><span class="en">Infrastructure</span></h3><p><span class="ar">تنفيذ أعمال البنية التحتية للمشروعات.</span><span class="en">Infrastructure works for projects.</span></p></div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="head">
+      <p class="eyebrow"><span class="ar">سابقة الأعمال</span><span class="en">Track record</span></p>
+      <h2><span class="ar">ما بنيناه وشطّبناه</span><span class="en">What we have built and finished</span></h2>
+    </div>
+    <div class="works">
+      <div class="work">
+        <svg viewBox="0 0 160 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 90 H148 M24 90 V56 H136 V90 M24 56 L80 28 L136 56 M64 90 V68 H96 V90 M38 68 H52 M108 68 H122"/></svg>
+        <h3><span class="ar">مراكز الشباب</span><span class="en">Youth centers</span></h3>
+      </div>
+      <div class="work">
+        <svg viewBox="0 0 160 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M15 90 H145 M45 90 V12 H115 V90 M45 32 H115 M45 52 H115 M45 72 H115 M80 12 V90"/></svg>
+        <h3><span class="ar">عمارات سكنية</span><span class="en">Residential buildings</span></h3>
+      </div>
+      <div class="work">
+        <svg viewBox="0 0 160 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M15 90 H145 M30 90 V52 L80 22 L130 52 V90 M62 90 V66 H98 V90 M110 58 H122 V72 H110Z"/></svg>
+        <h3><span class="ar">فلل</span><span class="en">Villas</span></h3>
+      </div>
+      <div class="work">
+        <svg viewBox="0 0 160 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 90 H148 M25 90 V42 H68 V90 M68 90 V20 H128 V90 M38 58 H55 M38 72 H55 M82 38 H114 M82 54 H114 M82 70 H114"/></svg>
+        <h3><span class="ar">شقق</span><span class="en">Apartments</span></h3>
+      </div>
+      <div class="work">
+        <svg viewBox="0 0 160 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 90 H148 M22 90 V50 H138 V90 M22 50 L80 26 L138 50 M44 90 V58 M70 90 V58 M96 90 V58 M122 90 V58"/></svg>
+        <h3><span class="ar">مشروعات خدمية</span><span class="en">Service projects</span></h3>
+      </div>
+    </div>
+    <p class="lead"><span class="ar">مشروعات نفذناها بالتعاون مع جهات الدولة، من الإنشاءات حتى التسليم.</span><span class="en">Projects delivered with state entities, from construction to handover.</span></p>
+  </section>
+  <section class="about" id="invest">
+    <div class="head">
+      <p class="eyebrow"><span class="ar">الاستثمار العقاري</span><span class="en">Real estate investment</span></p>
+      <h2><span class="ar">استثمارك العقاري يبدأ من الاختيار الصح</span><span class="en">Your real estate investment starts with the right choice</span></h2>
+    </div>
+    <p>
+      <span class="ar">العقار ليس مجرد مكان تشتريه أو تبيعه، بل فرصة لبناء مستقبل أفضل واستثمار يحافظ على قيمة أموالك. نسعى لنكون شريكك في القرار العقاري الصحيح، بتوفير الفرص المناسبة والاهتمام باحتياجاتك، وتجربة قائمة على الثقة والمصداقية.</span>
+      <span class="en">A property is not just a place you buy or sell. It is a chance to build a better future and an investment that keeps the value of your money. We aim to be your partner in the right real estate decision, by offering suitable opportunities, caring about your needs and building the experience on trust and credibility.</span>
+    </p>
+  </section>
+</div>
+
+<div class="contact" id="contact">
+  <div class="wrap" style="padding-block:72px">
+    <div>
+      <p class="eyebrow"><span class="ar">تواصل معنا</span><span class="en">Contact</span></p>
+      <h2><span class="ar">خبرة سنين... لبداية حلمك</span><span class="en">Years of experience, for the start of your dream</span></h2>
+      <p class="sub"><span class="ar">تواصل معنا الآن واحكِ لنا عن مشروعك.</span><span class="en">Contact us now and tell us about your project.</span></p>
+    </div>
+    <div>
+      <div class="numrow">
+        <a class="phoneicon" href="tel:00201096611768" aria-label="Call us" title="Call">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+        </a>
+        <a class="phoneicon" href="mailto:sallam.realestate.investment@gmail.com" aria-label="Email us" title="sallam.realestate.investment@gmail.com">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5z"/></svg>
+        </a>
+        <a class="phoneicon" href="https://www.facebook.com/share/1K1EFrrLRE/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14A28 28 0 0 0 14.64 2C11.93 2 10 3.66 10 6.7v2.8H7v4h3V22h4z"/></svg>
+        </a>
+        <a class="phoneicon" href="https://wa.me/201096611768" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.08.9.9-3-.2-.31a8.2 8.2 0 1 1 6.88 3.74zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.77 2.77 0 0 0-.86 2.06 4.8 4.8 0 0 0 1 2.56 11 11 0 0 0 4.22 3.73c1.57.68 2.19.74 2.97.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.29z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>&copy; 2026 Sallam Real Estate Investment</span>
+    <span class="ar">سلام للاستثمار العقاري</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l);
+    root.setAttribute('dir',l==='en'?'ltr':'rtl');
+    try{localStorage.setItem('sallam-lang',l)}catch(e){}
+  }
+  var saved='ar';
+  try{saved=localStorage.getItem('sallam-lang')||'ar'}catch(e){}
+  setLang(saved==='en'?'en':'ar');
+  document.getElementById('langbtn').addEventListener('click',function(){
+    setLang(root.getAttribute('data-lang')==='en'?'ar':'en');
+  });
+})();
+</script>
+
+</body>
+</html>
